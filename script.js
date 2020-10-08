@@ -19,38 +19,47 @@ var questions = [
   
   var questionIndex = 0;
   var correctCount = 0;
-  var time = 20;
+  var time = 10;
   var intervalId;
   
   function endQuiz() {
     clearInterval(intervalId);
     var body = document.body;
     body.innerHTML = "Game over, You scored " + correctCount;
-  
-    // wait 2 seconds and call showHighScore;
-    setTimeout(showHighScore, 2000);
+    setTimeout(showHighScore, 2);
   }
   
   function showHighScore() {
-    // write code here
-    var userName = prompt("enter your Name: ");
-    var highScoreList = localStorage.getItem("totalhighscores");
-    if(highScoreList){
-      highScoreList = JSON.parse(highScoreList);
+    var name = prompt("Please enter your name");
+  
+    var high_scores = localStorage.getItem("scores");
+  
+    if (!high_scores) {
+      high_scores = [];
+    } else {
+      high_scores = JSON.parse(high_scores);
     }
   
-    else{
-      highScoreList = [];
+    high_scores.push({ name: name, score: correctCount });
+
+    
+  
+    localStorage.setItem("scores", JSON.stringify(high_scores));
+  
+    high_scores.sort(function (a, b) {
+      return b.score - a.score;
+    });
+  
+    var contentUL = document.createElement("ul");
+  
+    for (var i = 0; i < high_scores.length; i++) {
+      var contentLI = document.createElement("li");
+      contentLI.textContent =
+        "Name: " + high_scores[i].name + " Score: " + high_scores[i].score;
+      contentUL.appendChild(contentLI);
     }
   
-    var highScore = {
-      userName: userName,
-      correctCount: correctCount
-    }
-    highScoreList.push(highScore);
-    console.log(highScoreList);
-    // localStorage.setItem("UserName", userName);
-  
+    document.body.appendChild(contentUL);
   }
   
   function updateTime() {
@@ -62,11 +71,12 @@ var questions = [
   }
   
   function renderQuestion() {
+    
     if (time == 0) {
       updateTime();
       return;
     }
-    
+  
     intervalId = setInterval(updateTime, 1000);
     questionEl.textContent = questions[questionIndex].question;
   
@@ -74,9 +84,9 @@ var questions = [
     questionResultEl.innerHTML = "";
   
     var choices = questions[questionIndex].choices;
-    var choicesLength = choices.length;
+    var choicesLenth = choices.length;
   
-    for (var i = 0; i < choicesLength; i++) {
+    for (var i = 0; i < choicesLenth; i++) {
       var questionListItem = document.createElement("li");
       questionListItem.textContent = choices[i];
       optionListEl.append(questionListItem);
@@ -109,3 +119,4 @@ var questions = [
   
   renderQuestion();
   optionListEl.addEventListener("click", checkAnswer);
+  
