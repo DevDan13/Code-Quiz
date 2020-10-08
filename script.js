@@ -1,15 +1,55 @@
 var questions = [
     {
-      question: "Commonly used data types DO NOT include:",
-      choices: ["strings", "booleans", "alerts", "numbers"],
-      answer: "alerts",
+        question: "Commonly used data types DO NOT include:",
+        choices: ["strings", "booleans", "alerts", "numbers"],
+        answer: "alerts",
     },
     {
-      question:
-        "The condition in an if / else statement is enclosed within ____.",
-      choices: ["quotes", "curly brackets", "parentheses", "square brackets"],
-      answer: "parentheses",
+        question:"The condition in an if / else statement is enclosed within ____.",
+        choices: ["quotes", "curly brackets", "parentheses", "square brackets"],
+        answer: "parentheses",
     },
+    {
+        question:"Entering Comments is a useless task, it will  not help in anyway.",
+        choices: ["true", "false"],
+        answer: "false",
+    },
+    {
+        question:"A short sections of code written to complete a task. ",
+        choices: ["buffer","array","segment","function"],
+        answer: "function",
+    },
+    {
+        question:"One loop inside the body of another loop is called",
+        choices: ["loop in loop", "nested", "multi loop", "double loop"],
+        answer: "nested",
+    },
+    {
+        question:"What does HTML stand for?",
+        choices: ["Hyper Text Markup Language", "Hyper Trainer Marking Language", "Hyper Text Marketing Language", "Hyper Text Markup Leveler"],
+        answer: "Hyper Text Markup Language",
+    },
+    {
+        question:"<h1>Text</h1> is the correct way of making a header in HTML.",
+        choices: ["true", "false"],
+        answer: "true",
+    },
+    {
+        question:"What does CSS stand for?",
+        choices: ["colorful style sheets", "cascading style sheets", "creative style sheets", "computer style sheets"],
+        answer: "Hyper Text Markup Language",
+    },
+    {
+        question:"Which HTML tag is used to define an internal style sheet?",
+        choices: ["<style>", "<inner>", "<css>", "<script>"],
+        answer: "<style>",
+    },
+    {
+        question:"How do you insert a comment in a CSS file?",
+        choices: ["//this is a comment", "/*this is a comment*/", "'this is a comment", "//this is a comment//"],
+        answer: "/*this is a comment*/",
+    },
+    
   ];
   
   var questionEl = document.querySelector("#question");
@@ -19,7 +59,7 @@ var questions = [
   
   var questionIndex = 0;
   var correctCount = 0;
-  var time = 10;
+  var time = 30;
   var intervalId;
   
   function endQuiz() {
@@ -44,6 +84,8 @@ var questions = [
 
     
   
+    //add link to highscores.js here? how to transfer functions to new page?
+
     localStorage.setItem("scores", JSON.stringify(high_scores));
   
     high_scores.sort(function (a, b) {
