@@ -1,3 +1,35 @@
 .hide{
     display: none;
 }
+
+#timer{
+    
+    color: blueviolet;
+    text-align: right;
+    font-weight: 900;
+}
+
+a{
+    text-align: left;
+    margin-top: -20px;
+    position: absolute;
+    font-weight: 900;
+    color: blueviolet;
+}
+
+.question-block{
+    text-align: center;
+    margin-top: 100px;
+}
+
+#question{
+    font-weight: 700;
+    font-size: xx-large;
+}
+
+/* .choice-btn{
+    color: blueviolet;
+} */
+.btn-lg{
+    color: blueviolet;
+}

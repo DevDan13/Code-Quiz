@@ -5,47 +5,47 @@ var questions = [
         answer: "alerts",
     },
     {
-        question: "The condition in an if / else statement is enclosed within ____.",
+        question: "The condition in an if / else statement is enclosed within ____: ",
         choices: ["quotes", "curly brackets", "parentheses", "square brackets"],
         answer: "parentheses",
     },
     {
-        question: "Entering Comments is a useless task, it will  not help in anyway.",
+        question: "Entering Comments is a useless task, it will  not help in anyway: ",
         choices: ["true", "false"],
         answer: "false",
     },
     {
-        question: "A short sections of code written to complete a task. ",
+        question: "A short sections of code written to complete a task: ",
         choices: ["buffer", "array", "segment", "function"],
         answer: "function",
     },
     {
-        question: "One loop inside the body of another loop is called",
+        question: "One loop inside the body of another loop is called: ",
         choices: ["loop in loop", "nested", "multi loop", "double loop"],
         answer: "nested",
     },
     {
-        question: "What does HTML stand for?",
+        question: "What does HTML stand for?: ",
         choices: ["Hyper Text Markup Language", "Hyper Trainer Marking Language", "Hyper Text Marketing Language", "Hyper Text Markup Leveler"],
         answer: "Hyper Text Markup Language",
     },
     {
-        question: "<h1>Text</h1> is the correct way of making a header in HTML.",
+        question: "<h1>Text</h1> is the correct way of making a header in HTML: ",
         choices: ["true", "false"],
         answer: "true",
     },
     {
-        question: "What does CSS stand for?",
+        question: "What does CSS stand for?: ",
         choices: ["colorful style sheets", "cascading style sheets", "creative style sheets", "computer style sheets"],
         answer: "cascading style sheets",
     },
     {
-        question: "Which HTML tag is used to define an internal style sheet?",
+        question: "Which HTML tag is used to define an internal style sheet?: ",
         choices: ["<style>", "<inner>", "<css>", "<script>"],
         answer: "<style>",
     },
     {
-        question: "How do you insert a comment in a CSS file?",
+        question: "How do you insert a comment in a CSS file?: ",
         choices: ["//this is a comment", "/*this is a comment*/", "'this is a comment", "//this is a comment//"],
         answer: "/*this is a comment*/",
     },
@@ -57,11 +57,14 @@ var optionListEl = document.querySelector("#option-list");
 var questionResultEl = document.querySelector("#question-result");
 var timerEl = document.querySelector("#timer");
 
+var optionBtn = document.querySelector(".choice-btn");
 var displayScore = document.querySelector("#highscores");
+
+
 
 var questionIndex = 0;
 var correctCount = 0;
-var time = 45;
+var time = 4500;
 var intervalId;
 
 function endQuiz() {
@@ -107,7 +110,7 @@ function showHighScore() {
 
 function updateTime() {
     time--;
-    timerEl.textContent = time;
+    timerEl.textContent = "Time: " + time;
     if (time <= 0) {
         endQuiz();
     }
@@ -131,6 +134,8 @@ function renderQuestion() {
 
     for (var i = 0; i < choicesLenth; i++) {
         var questionListItem = document.createElement("li");
+
+        optionBtn.setAttribute("choice-btn", choices[i]);
         questionListItem.textContent = choices[i];
         optionListEl.append(questionListItem);
     }
