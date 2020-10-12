@@ -9,46 +9,46 @@ var questions = [
         choices: ["quotes", "curly brackets", "parentheses", "square brackets"],
         answer: "parentheses",
     },
-    // {
-    //     question: "Entering Comments is a useless task, it will  not help in anyway: ",
-    //     choices: ["true", "false"],
-    //     answer: "false",
-    // },
-    // {
-    //     question: "A short sections of code written to complete a task: ",
-    //     choices: ["buffer", "array", "segment", "function"],
-    //     answer: "function",
-    // },
-    // {
-    //     question: "One loop inside the body of another loop is called: ",
-    //     choices: ["loop in loop", "nested", "multi loop", "double loop"],
-    //     answer: "nested",
-    // },
-    // {
-    //     question: "What does HTML stand for?: ",
-    //     choices: ["Hyper Text Markup Language", "Hyper Trainer Marking Language", "Hyper Text Marketing Language", "Hyper Text Markup Leveler"],
-    //     answer: "Hyper Text Markup Language",
-    // },
-    // {
-    //     question: "<h1>Text</h1> is the correct way of making a header in HTML: ",
-    //     choices: ["true", "false"],
-    //     answer: "true",
-    // },
-    // {
-    //     question: "What does CSS stand for?: ",
-    //     choices: ["colorful style sheets", "cascading style sheets", "creative style sheets", "computer style sheets"],
-    //     answer: "cascading style sheets",
-    // },
-    // {
-    //     question: "Which HTML tag is used to define an internal style sheet?: ",
-    //     choices: ["<style>", "<inner>", "<css>", "<script>"],
-    //     answer: "<style>",
-    // },
-    // {
-    //     question: "How do you insert a comment in a CSS file?: ",
-    //     choices: ["//this is a comment", "/*this is a comment*/", "'this is a comment", "//this is a comment//"],
-    //     answer: "/*this is a comment*/",
-    // },
+    {
+        question: "Entering Comments is a useless task, it will  not help in anyway: ",
+        choices: ["true", "false"],
+        answer: "false",
+    },
+    {
+        question: "A short sections of code written to complete a task: ",
+        choices: ["buffer", "array", "segment", "function"],
+        answer: "function",
+    },
+    {
+        question: "One loop inside the body of another loop is called: ",
+        choices: ["loop in loop", "nested", "multi loop", "double loop"],
+        answer: "nested",
+    },
+    {
+        question: "What does HTML stand for?: ",
+        choices: ["Hyper Text Markup Language", "Hyper Trainer Marking Language", "Hyper Text Marketing Language", "Hyper Text Markup Leveler"],
+        answer: "Hyper Text Markup Language",
+    },
+    {
+        question: "<h1>Text</h1> is the correct way of making a header in HTML: ",
+        choices: ["true", "false"],
+        answer: "true",
+    },
+    {
+        question: "What does CSS stand for?: ",
+        choices: ["colorful style sheets", "cascading style sheets", "creative style sheets", "computer style sheets"],
+        answer: "cascading style sheets",
+    },
+    {
+        question: "Which HTML tag is used to define an internal style sheet?: ",
+        choices: ["<style>", "<inner>", "<css>", "<script>"],
+        answer: "<style>",
+    },
+    {
+        question: "How do you insert a comment in a CSS file?: ",
+        choices: ["//this is a comment", "/*this is a comment*/", "'this is a comment", "//this is a comment//"],
+        answer: "/*this is a comment*/",
+    },
 
 ];
 
@@ -164,9 +164,6 @@ function checkAnswer(event) {
     }
     setTimeout(nextQuestion, 2000);
 }
-
-//renderQuestion();
-
 
 startButton.addEventListener("click", startGame);
 optionListEl.addEventListener("click", checkAnswer);
