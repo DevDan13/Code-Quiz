@@ -14,31 +14,37 @@
 <body>
     <div id="start">
         <p>This is a simple coding quiz to test your fundamental knowledge!</p>
-        <button id="start-button">Get Started</button>
+        <button id="start-button" class="btn-instructions">Get Started</button>
     </div>
 
 
     <div id="timer"></div>
 
 
+    <a class="hide" id="page-link" href="./highscores.html">View HighScores</a>
 
-    <div class="page-block hide">
+    <div class="container hide">
 
-        <a href="./highscores.html">View HighScores</a>
+        <div id="question"></div>
 
-        <div class="question-block">
+        <ul id="option-list"></ul>
 
-            <div id="question"></div>
+        <!-- <button type="button" class="btn btn-primary btn-lg choice-btn"></button> -->
 
-            <ul id="option-list"></ul>
-
-            <button type="button" class="btn btn-primary btn-lg choice-btn"></button>
-
-            <div id="question-result"></div>
+        <div id="question-result"></div>
+<!-- 
+        <form class="form-block hide">
+            <div class="form-group">
+              <label for="exampleInputPassword1">Enter High-Score</label>
+              <input type="password" class="form-control" id="exampleInputPassword1">
+            </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form> -->
             
-        </div>
-
     </div>
+
+
+    
 
     <script src="./script.js"></script>
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"

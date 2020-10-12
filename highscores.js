@@ -12,7 +12,6 @@ high_scores.sort(function (a, b) {
     return b.score - a.score;
 });
 
-
 for (var i = 0; i < high_scores.length; i++) {
     var contentLI = document.createElement("li");
     contentLI.textContent =

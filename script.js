@@ -56,11 +56,13 @@ var questionEl = document.querySelector("#question");
 var optionListEl = document.querySelector("#option-list");
 var questionResultEl = document.querySelector("#question-result");
 var timerEl = document.querySelector("#timer");
-var pageBlock = document.querySelector(".page-block");
+var pageLink = document.querySelector("#page-link");
+var questionBlock = document.querySelector(".container");
+var formBlock = document.querySelector(".form-block");
 
 var questionIndex = 0;
 var correctCount = 0;
-var time = 4500;
+var time = 45;
 var intervalId;
 
 var startEl = document.querySelector("#start");
@@ -68,7 +70,8 @@ var startButton = document.querySelector("#start-button");
 
 function startGame() {
     startEl.classList.add("hide");
-    pageBlock.classList.remove("hide");
+    pageLink.classList.remove("hide");
+    questionBlock.classList.remove("hide");
     renderQuestion();
 }
 
@@ -132,7 +135,7 @@ function renderQuestion() {
     for (var i = 0; i < choicesLenth; i++) {
         var questionListItem = document.createElement("button");
         questionListItem.setAttribute("type","button");
-        questionListItem.setAttribute("class","btn-block");
+        questionListItem.setAttribute("class","btn-instructions");
         questionListItem.textContent = choices[i];
         optionListEl.append(questionListItem);
     }
