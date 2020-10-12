@@ -7,29 +7,52 @@
     color: blueviolet;
     text-align: right;
     font-weight: 900;
+    font-size: 20px;
+    font-family: cursive;
 }
 
 a{
     text-align: left;
-    margin-top: -20px;
+    margin-top: -30px;
     position: absolute;
+    font-size: 20px;
     font-weight: 900;
     color: blueviolet;
+    font-family: cursive;
 }
 
 .question-block{
     text-align: center;
     margin-top: 100px;
+    font-weight: 700;
+    font-family: fantasy;
 }
 
 #question{
-    font-weight: 700;
     font-size: xx-large;
 }
 
 /* .choice-btn{
     color: blueviolet;
 } */
-.btn-lg{
+/* .btn-lg{
     color: blueviolet;
+} */
+
+/* li{
+    margin-left: 750px;
+    margin-right: 1000px;
+} */
+button{
+    margin-right: 50px;
+    font-size: 15px;
+    color: black;
+    border-style: solid;
+    width: 100px;
+}
+#question-result{
+    text-decoration-line: overline;
+    font-style: italic;
+    margin-top: 10px;
+    margin-right: 15px;
 }

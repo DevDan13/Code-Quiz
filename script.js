@@ -9,46 +9,46 @@ var questions = [
         choices: ["quotes", "curly brackets", "parentheses", "square brackets"],
         answer: "parentheses",
     },
-    {
-        question: "Entering Comments is a useless task, it will  not help in anyway: ",
-        choices: ["true", "false"],
-        answer: "false",
-    },
-    {
-        question: "A short sections of code written to complete a task: ",
-        choices: ["buffer", "array", "segment", "function"],
-        answer: "function",
-    },
-    {
-        question: "One loop inside the body of another loop is called: ",
-        choices: ["loop in loop", "nested", "multi loop", "double loop"],
-        answer: "nested",
-    },
-    {
-        question: "What does HTML stand for?: ",
-        choices: ["Hyper Text Markup Language", "Hyper Trainer Marking Language", "Hyper Text Marketing Language", "Hyper Text Markup Leveler"],
-        answer: "Hyper Text Markup Language",
-    },
-    {
-        question: "<h1>Text</h1> is the correct way of making a header in HTML: ",
-        choices: ["true", "false"],
-        answer: "true",
-    },
-    {
-        question: "What does CSS stand for?: ",
-        choices: ["colorful style sheets", "cascading style sheets", "creative style sheets", "computer style sheets"],
-        answer: "cascading style sheets",
-    },
-    {
-        question: "Which HTML tag is used to define an internal style sheet?: ",
-        choices: ["<style>", "<inner>", "<css>", "<script>"],
-        answer: "<style>",
-    },
-    {
-        question: "How do you insert a comment in a CSS file?: ",
-        choices: ["//this is a comment", "/*this is a comment*/", "'this is a comment", "//this is a comment//"],
-        answer: "/*this is a comment*/",
-    },
+    // {
+    //     question: "Entering Comments is a useless task, it will  not help in anyway: ",
+    //     choices: ["true", "false"],
+    //     answer: "false",
+    // },
+    // {
+    //     question: "A short sections of code written to complete a task: ",
+    //     choices: ["buffer", "array", "segment", "function"],
+    //     answer: "function",
+    // },
+    // {
+    //     question: "One loop inside the body of another loop is called: ",
+    //     choices: ["loop in loop", "nested", "multi loop", "double loop"],
+    //     answer: "nested",
+    // },
+    // {
+    //     question: "What does HTML stand for?: ",
+    //     choices: ["Hyper Text Markup Language", "Hyper Trainer Marking Language", "Hyper Text Marketing Language", "Hyper Text Markup Leveler"],
+    //     answer: "Hyper Text Markup Language",
+    // },
+    // {
+    //     question: "<h1>Text</h1> is the correct way of making a header in HTML: ",
+    //     choices: ["true", "false"],
+    //     answer: "true",
+    // },
+    // {
+    //     question: "What does CSS stand for?: ",
+    //     choices: ["colorful style sheets", "cascading style sheets", "creative style sheets", "computer style sheets"],
+    //     answer: "cascading style sheets",
+    // },
+    // {
+    //     question: "Which HTML tag is used to define an internal style sheet?: ",
+    //     choices: ["<style>", "<inner>", "<css>", "<script>"],
+    //     answer: "<style>",
+    // },
+    // {
+    //     question: "How do you insert a comment in a CSS file?: ",
+    //     choices: ["//this is a comment", "/*this is a comment*/", "'this is a comment", "//this is a comment//"],
+    //     answer: "/*this is a comment*/",
+    // },
 
 ];
 
@@ -57,7 +57,7 @@ var optionListEl = document.querySelector("#option-list");
 var questionResultEl = document.querySelector("#question-result");
 var timerEl = document.querySelector("#timer");
 
-var optionBtn = document.querySelector(".choice-btn");
+
 var displayScore = document.querySelector("#highscores");
 
 
@@ -85,8 +85,10 @@ function showHighScore() {
         high_scores = JSON.parse(high_scores);
     }
 
+    console.log(high_scores);
     high_scores.push({ name: name, score: correctCount })
 
+    console.log(correctCount);
 
     localStorage.setItem("scores", JSON.stringify(high_scores));
 
@@ -94,18 +96,19 @@ function showHighScore() {
         return b.score - a.score;
     });
 
-    var contentUL = document.createElement("ul");
+    // var contentUL = document.createElement("ul");
 
-    for (var i = 0; i < high_scores.length; i++) {
-        var contentLI = document.createElement("li");
-        contentLI.textContent =
-            "Name: " + high_scores[i].name + " Score: " + high_scores[i].score;
-        contentUL.appendChild(contentLI);
-    }
+    // for (var i = 0; i < high_scores.length; i++) {
+    //     var contentLI = document.createElement("li");
+    //     contentLI.textContent =
+    //         "Name: " + high_scores[i].name + " Score: " + high_scores[i].score;
+    //     contentUL.appendChild(contentLI);
+    // }
 
-    document.body.appendChild(contentUL);
+    //document.body.appendChild(contentUL);
 
-    displayScore.innerHTML = localStorage.getItem("scores");
+    window.location.href="highscores.html";
+
 }
 
 function updateTime() {
@@ -133,9 +136,9 @@ function renderQuestion() {
     var choicesLenth = choices.length;
 
     for (var i = 0; i < choicesLenth; i++) {
-        var questionListItem = document.createElement("li");
-
-        optionBtn.setAttribute("choice-btn", choices[i]);
+        var questionListItem = document.createElement("button");
+        questionListItem.setAttribute("type","button");
+        questionListItem.setAttribute("class","btn-block");
         questionListItem.textContent = choices[i];
         optionListEl.append(questionListItem);
     }
@@ -151,7 +154,7 @@ function nextQuestion() {
 
 function checkAnswer(event) {
     clearInterval(intervalId);
-    if (event.target.matches("li")) {
+    if (event.target.matches("button")) {
         var answer = event.target.textContent;
         if (answer === questions[questionIndex].answer) {
             questionResultEl.textContent = "Correct";
