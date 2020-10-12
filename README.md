@@ -45,4 +45,25 @@
     }
 
     * here the setTimeout function calls nextQuestion function after 2 seconds.
-    
+
+* This will continue to happen until one of two conditions are met.
+
+     * The set time hits zero
+     * the quiz questions have been completed.
+
+* The user is then asked to enter their name which will be displayed with their score on the highscores.html
+* This is done using window.location.href="highscores.html";
+
+* In the high scores page the high scores list is displayed in descending order with a back and clear button.
+
+    * Go back takes us back to the quiz using 
+        goBack.addEventListener("click", function(){
+            window.location.href="index.html";
+        });
+
+    * clear clears the high scores list using 
+        clearPage.addEventListener("click", function(){
+            localStorage.clear();
+            alert("Cleared all highscores");
+            location.reload();
+        });
