@@ -2,6 +2,10 @@
     display: none;
 }
 
+.show{
+    display: block;
+}
+
 #timer{
     
     color: blueviolet;
@@ -14,7 +18,7 @@
 a{
     text-align: left;
     margin-top: -30px;
-    position: absolute;
+    position: fixed;
     font-size: 20px;
     font-weight: 900;
     color: blueviolet;

@@ -12,16 +12,15 @@ high_scores.sort(function (a, b) {
     return b.score - a.score;
 });
 
-var contentOL = document.createElement("ol");
 
 for (var i = 0; i < high_scores.length; i++) {
     var contentLI = document.createElement("li");
     contentLI.textContent =
         "Name: " + high_scores[i].name + " Score: " + high_scores[i].score;
-    contentOL.appendChild(contentLI);
+        scoreOl.appendChild(contentLI);
 }
 
-body.appendChild(contentOL);
+displayScore.append(scoreOl);
 
 
 goBack.addEventListener("click", function(){

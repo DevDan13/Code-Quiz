@@ -56,16 +56,21 @@ var questionEl = document.querySelector("#question");
 var optionListEl = document.querySelector("#option-list");
 var questionResultEl = document.querySelector("#question-result");
 var timerEl = document.querySelector("#timer");
-
-
-var displayScore = document.querySelector("#highscores");
-
-
+var pageBlock = document.querySelector(".page-block");
 
 var questionIndex = 0;
 var correctCount = 0;
 var time = 4500;
 var intervalId;
+
+var startEl = document.querySelector("#start");
+var startButton = document.querySelector("#start-button");
+
+function startGame() {
+    startEl.classList.add("hide");
+    pageBlock.classList.remove("hide");
+    renderQuestion();
+}
 
 function endQuiz() {
     clearInterval(intervalId);
@@ -95,17 +100,6 @@ function showHighScore() {
     high_scores.sort(function (a, b) {
         return b.score - a.score;
     });
-
-    // var contentUL = document.createElement("ul");
-
-    // for (var i = 0; i < high_scores.length; i++) {
-    //     var contentLI = document.createElement("li");
-    //     contentLI.textContent =
-    //         "Name: " + high_scores[i].name + " Score: " + high_scores[i].score;
-    //     contentUL.appendChild(contentLI);
-    // }
-
-    //document.body.appendChild(contentUL);
 
     window.location.href="highscores.html";
 
@@ -168,5 +162,8 @@ function checkAnswer(event) {
     setTimeout(nextQuestion, 2000);
 }
 
-renderQuestion();
+//renderQuestion();
+
+
+startButton.addEventListener("click", startGame);
 optionListEl.addEventListener("click", checkAnswer);
