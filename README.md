@@ -67,3 +67,12 @@
             alert("Cleared all highscores");
             location.reload();
         });
+
+## Project Link
+
+https://devdan13.github.io/Code-Quiz/
+
+
+## Demo Picture
+
+![image](https://user-images.githubusercontent.com/69943020/96529563-86516980-1253-11eb-8d6f-e7e313a5829b.png)
